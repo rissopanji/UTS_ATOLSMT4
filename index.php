@@ -32,7 +32,20 @@
   } ;
 
 
-  
+  $nims = array_column($data, 'nim');
+  $namas = array_column($data, 'nama');
+  $nilais = array_column($data, 'nilai');
+  $nilai_terbesars = $data;
+
+
+  if (count($data)) {
+      usort($nilai_terbesars, function($a, $b) {
+          if ($a['nilai'] == $b['nilai']) {
+            return 0;
+          }
+          return ($a['nilai'] > $b['nilai']) ? -1 : 1;
+      });
+  }
 
   ?>
   <div class="mx-auto">
@@ -97,6 +110,34 @@
       </div>
     </div>
     
+    <!-- Data Diurutkan Dari nilai terbesar -->
+
+    <div class="card">
+      <div class="card-header text-white bg-secondary">
+        Data Mahasiswa Diurutkan Dari Nilai Paling Besar
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">NIM</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Nilai</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach($nilai_terbesars as $nilai_terbesar) { ?>
+            <tr>
+                <td><?= $nilai_terbesar['nim'] ?></td>
+                <td><?= $nilai_terbesar['nama'] ?></td>
+                <td><?= $nilai_terbesar['nilai'] ?></td>
+            </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   
 
   </div>
