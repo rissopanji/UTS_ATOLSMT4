@@ -49,7 +49,6 @@
   $nilai_ratas = 0;
 
   $data_sorts = $data;
-
   
   if (count($data)) {
 
