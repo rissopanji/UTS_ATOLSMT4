@@ -172,7 +172,7 @@
 
     <div class="card">
       <div class="card-header text-white bg-secondary">
-        Data Mahasiswa Diurutkan Dari Nilai Paling Besar
+        Data Mahasiswa Diurutkan Dari Nilai Paling Kecil
       </div>
       <div class="card-body">
         <table class="table">
